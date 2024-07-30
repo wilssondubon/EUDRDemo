@@ -1,0 +1,140 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegúrate de que el z-index sea alto para superponer */
+}
+
+.gallery-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+}
+
+.gallery-content button {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.map-dropdown {
+  position: relative;
+  display: inline-block; /* Asegura que el menú se alinee con el botón */
+}
+
+.map-dropdown-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.map-dropdown-menu {
+  position: absolute;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  top: 100%; /* Coloca el menú justo debajo del botón */
+  right: 0; /* Alinea el menú a la izquierda del botón */
+  min-width: 150px; /* Ancho mínimo del menú */
+  max-width: 300px; /* Ancho máximo para el menú */
+  overflow: auto; /* Permite el desbordamiento con barra de desplazamiento */
+  z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+  white-space: nowrap; /* Evita que el texto se ajuste a nuevas líneas */
+}
+
+.map-dropdown-item {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+.map-dropdown-item:hover {
+  background: #f0f0f0;
+}
+
+.map-close-button {
+  margin-top: 10px;
+  padding: 5px;
+  background: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  max-width: none !important; /* Elimina el límite de ancho máximo */
+  min-width: 230px;
+}
+
+.custom-popup .leaflet-popup-content {
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  display: inline-block; /* Asegura que el contenedor se ajuste al contenido */
+  max-width: none !important; /* Elimina el límite de ancho máximo */
+  min-width: 230px;
+}
+
+@media (max-width: 1024px) and (max-height: 768px) {
+  .hide-on-small {
+    display: none !important;
+  }
+}
