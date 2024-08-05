@@ -39,7 +39,7 @@ function App() {
   useEffect(() => {
     const fetchGeoJson = async () => {
       try {
-        const response = await axios.get("DemoEUDR/B-25433.json");
+        const response = await axios.get("https://wilssondubon.github.io/EUDRDemo/B-25433.json");
         setDespacho(response.data);
         setGeoJsonData(response.data.GeoJson);
         const centroid = turf.centroid(response.data.GeoJson);
@@ -197,13 +197,13 @@ function App() {
     return (
       <div className="map-dropdown">
         <button onClick={toggleMenu} className="map-dropdown-button">
-          Opciones
+          Options
         </button>
         {isOpen && (
           <div className="map-dropdown-menu">
             <ul className="list-group">
               <li className="list-group-item">
-                <h5>LISTADO DE FINCAS</h5>
+                <h5>Farmers List</h5>
               </li>
               {despacho.Fincas.map((finca, index) => (
                 <li className={`list-group-item ${selectedFinca && finca.CodigoFinca === selectedFinca.CodigoFinca ? "bg-success text-white" : ""}`} key={index} onClick={() => handleFincaClick(finca)}>
@@ -212,7 +212,7 @@ function App() {
               ))}
               <li className="list-group-item">
                 <button className="btn btn-link" onClick={descargarGeoJson}>
-                  Descargar GeoJson
+                  Download Shipping Order GeoJson
                 </button>
               </li>
             </ul>
@@ -266,15 +266,15 @@ function App() {
       {despacho && (
         <div className="card p-0 mb-2">
           <div className="card-header bg-white border-0 m-0 p-0">
-            <h3>Informe EUDR</h3>
+            <h3>EUDR Report</h3>
             <p className="m-0">
-              Orden de despacho: {despacho.SerieOrden}-{despacho.NumeroOrden}
+              Shipping Order: {despacho.SerieOrden}-{despacho.NumeroOrden}
             </p>
-            <p className="m-0">Fecha: {despacho.Fecha}</p>
+            <p className="m-0">Date: {despacho.Fecha}</p>
             <p className="m-0">
-              Factura: {despacho.SerieFactura}-{despacho.NumeroFactura}
+              Invoice Number: {despacho.SerieFactura}-{despacho.NumeroFactura}
             </p>
-            <p className="m-0">Cantidad: {despacho.Cantidad} Kg.</p>
+            <p className="m-0">{despacho.Cantidad} Kg.</p>
             <p className="mt-0 mb-2">{despacho.Cliente}</p>
           </div>
         </div>
@@ -297,7 +297,7 @@ function App() {
           {despacho && despacho.Fincas && (
             <div className="card">
               <div className="card-header bg-white border-0">
-                <h3>Listado de Fincas</h3>
+                <h3>Farmers List</h3>
               </div>
               <div className="card-body">
                 <ul className="list-group">
@@ -310,7 +310,7 @@ function App() {
               </div>
               <div className="card-footer bg-white border-0">
                 <button className="mb-2 btn btn-primary" onClick={descargarGeoJson}>
-                  Descargar GeoJson del Despacho
+                  Download Shipping Order GeoJson
                 </button>
               </div>
             </div>
@@ -322,14 +322,14 @@ function App() {
                 <h4 className="mb-2">{selectedFinca.NombreFinca}</h4>
               </div>
               <div className="card-body">
-                <p className="m-0">Cantidad: {selectedFinca.Cantidad} Kg.</p>
+                <p className="m-0">{selectedFinca.Cantidad} Kg.</p>
               </div>
               <div className="card-footer">
                 <button className="m-2 btn btn-primary" onClick={descargarGeoJsonFinca}>
-                  Descargar GeoJson de Finca
+                  Download Farmer GeoJson
                 </button>
                 <button className="m-2 btn btn-primary" onClick={descargarGeoJson}>
-                  Descargar Papeleria EUDR
+                  View InCompliance
                 </button>
               </div>
             </div>
