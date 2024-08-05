@@ -106,14 +106,14 @@ function App() {
       <div >
         <p className="m-2">{finca.NombreFinca}</p>
 
-        <p className="m-2">Cantidad: {finca.Cantidad} Kg.</p>
+        <p className="m-2">{finca.Cantidad} Kg.</p>
 
         <button className="m-0 btn btn-link" onClick={() => descargarGeoJsonFinca(finca)}>
-          Descargar GeoJson
+          Download Farmer GeoJson
         </button>
         <br />
         <button className="m-0 btn btn-link" onClick={descargarGeoJson}>
-          Descargar Papeleria
+          View InCompliance
         </button>
       </div>
     );
